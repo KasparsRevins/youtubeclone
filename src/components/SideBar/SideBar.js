@@ -4,7 +4,7 @@ const SideBar = () => {
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <button
-            class="navbar-toggler"
+            class="navbar-toggler border-0"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo01"
@@ -16,7 +16,7 @@ const SideBar = () => {
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="#">
-              Hidden brand
+            <i class="bi bi-list"></i>
             </a>
             <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0">
               <li class="nav-item">
