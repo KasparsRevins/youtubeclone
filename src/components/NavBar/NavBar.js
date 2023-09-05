@@ -16,6 +16,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { AspectRatio } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -98,8 +100,12 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Link to="/SignIn" onClick={handleMenuClose} style={{textDecoration: 'none', color: "black"}}>
+        <MenuItem onClick={handleMenuClose}>Sign in</MenuItem>
+      </Link>
+      <Link to="/SignUp" onClick={handleMenuClose} style={{textDecoration: 'none', color: "black"}}>
+        <MenuItem onClick={handleMenuClose}>Sign up</MenuItem>
+      </Link>
     </Menu>
   );
 
@@ -174,17 +180,19 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-            <img style={{width: "90px"}} src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500" />
+            <img style={{width: "90px", cursor: "pointer"}} src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500" />
           </Typography>
-          <Search>
+          <Search style={{width:"440px", border: "1px solid grey", borderRadius: "25px 0 0 25px"}}>
             <StyledInputBase
-              style={{width:"250px", border: "1px solid grey", borderRadius: "25px 0 0 25px"}}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              fullWidth label="fullWidth" id="fullWidth"
               />
               <SearchIconWrapper>
+
+              <SearchIcon style={{color: "grey", backgroundColor: "WhiteSmoke", border: "1px solid grey", height: "44.5px", borderRadius: "0 25px 25px 0", cursor: "pointer"}}/>
               </SearchIconWrapper>
-              <SearchIcon style={{color: "grey", backgroundColor: "WhiteSmoke", border: "1px solid grey", height: "41px", borderRadius: "0 25px 25px 0"}}/>
+
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
