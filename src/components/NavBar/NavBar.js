@@ -1,60 +1,59 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import { AspectRatio } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import * as React from "react";
+import { styled, alpha } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import InputBase from "@mui/material/InputBase";
+import Badge from "@mui/material/Badge";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import MailIcon from "@mui/icons-material/Mail";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import MoreIcon from "@mui/icons-material/MoreVert";
+import { AspectRatio } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import Divider from "@mui/material/Divider";
 
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
+  "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
+  width: "100%",
+  [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
-    width: 'auto',
+    width: "auto",
   },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 1),
+  height: "100%",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'black',
-  '& .MuiInputBase-input': {
+  color: "black",
+  "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
+    paddingRight: `calc(1em + ${theme.spacing(2)})`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
     },
   },
 }));
@@ -83,45 +82,53 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <Link to="/SignIn" onClick={handleMenuClose} style={{textDecoration: 'none', color: "black"}}>
+      <Link
+        to="/SignIn"
+        onClick={handleMenuClose}
+        style={{ textDecoration: "none", color: "black" }}
+      >
         <MenuItem onClick={handleMenuClose}>Sign in</MenuItem>
       </Link>
-      <Link to="/SignUp" onClick={handleMenuClose} style={{textDecoration: 'none', color: "black"}}>
+      <Link
+        to="/SignUp"
+        onClick={handleMenuClose}
+        style={{ textDecoration: "none", color: "black" }}
+      >
         <MenuItem onClick={handleMenuClose}>Sign up</MenuItem>
       </Link>
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
@@ -163,7 +170,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar style={{backgroundColor: "white"}} position="static">
+      <AppBar style={{ backgroundColor: "white" }} position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -178,25 +185,54 @@ export default function PrimarySearchAppBar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-            <img style={{width: "90px", cursor: "pointer"}} src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500" />
+            sx={{ mr: 3, display: { xs: "none", sm: "block" } }}
+          >
+            <img
+              style={{ width: "90px", cursor: "pointer" }}
+              src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500"
+            />
           </Typography>
-          <Search style={{width:"440px", border: "1px solid grey", borderRadius: "25px 0 0 25px"}}>
+
+          <Search
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "65%",
+              border: "1px solid grey",
+              borderRadius: "25px 0 0 25px",
+            }}
+          >
             <StyledInputBase
               placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-              fullWidth label="fullWidth" id="fullWidth"
+              inputProps={{ "aria-label": "search" }}
+            />
+            <SearchIconWrapper>
+            <Divider
+              orientation="vertical"
+              flexItem
+              style={{ border: "1px solid black" }}
+            />
+              <SearchIcon
+                style={{
+                  color: "grey",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  backgroundColor: "WhiteSmoke",
+                  height: "auto",
+                  width: "40px",
+                  borderRadius: "0 25px 25px 0",
+                }}
               />
-              <SearchIconWrapper>
-
-              <SearchIcon style={{color: "grey", backgroundColor: "WhiteSmoke", border: "1px solid grey", height: "44.5px", borderRadius: "0 25px 25px 0", cursor: "pointer"}}/>
-              </SearchIconWrapper>
-
+            </SearchIconWrapper>
           </Search>
+
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="black">
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="black"
+            >
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
@@ -222,7 +258,7 @@ export default function PrimarySearchAppBar() {
               <AccountCircle />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="show more"
