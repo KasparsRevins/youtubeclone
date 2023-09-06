@@ -15,9 +15,9 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import { AspectRatio } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import Divider from "@mui/material/Divider";
+import { Chip, InputAdornment } from "@mui/material";
+import MuiTextField from "@mui/material/TextField";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -168,6 +168,21 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+  const TextField = styled(MuiTextField)(({ theme }) => ({
+    "& .MuiOutlinedInput-root": {
+      paddingLeft: 0,
+      height: "40px"
+    },
+    "& .MuiInputAdornment-root": {
+      backgroundColor: "WhiteSmoke",
+      borderLeft: "1px solid LightGray",
+      padding: "20px 0",
+      borderTopLeftRadius: theme.shape.borderRadius + "px",
+      borderBottomLeftRadius: theme.shape.borderRadius + "px",
+      borderRadius: "0 25px 25px 0",
+    },
+  }));
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar style={{ backgroundColor: "white" }} position="static">
@@ -192,39 +207,25 @@ export default function PrimarySearchAppBar() {
               src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500"
             />
           </Typography>
-
-          <Search
+    
+          <TextField
+            placeholder="Search..."
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "65%",
-              border: "1px solid grey",
-              borderRadius: "25px 0 0 25px",
+              flex: "auto",
+              margin: "5px",
             }}
-          >
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-            <SearchIconWrapper>
-            <Divider
-              orientation="vertical"
-              flexItem
-              style={{ border: "1px solid black" }}
-            />
-              <SearchIcon
-                style={{
-                  color: "grey",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  backgroundColor: "WhiteSmoke",
-                  height: "auto",
-                  width: "40px",
-                  borderRadius: "0 25px 25px 0",
-                }}
-              />
-            </SearchIconWrapper>
-          </Search>
+            InputProps={{
+              sx: { borderRadius: 25, paddingRight: "0"},
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton>
+                    <SearchIcon></SearchIcon>
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            type="text"
+          />
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
