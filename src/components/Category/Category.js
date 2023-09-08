@@ -1,7 +1,7 @@
 import "./style.css";
 const Category = () => {
   return (
-    <div class="container">
+    <div class="container" style={{ paddingTop: "25px" }}>
       <div class="grid text-center align-items-center category">
         <div class="border rounded-pill p-1" type="button">All</div>
         <div class="border rounded-pill p-1" type="button">Adventure</div>

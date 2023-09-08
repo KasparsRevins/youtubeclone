@@ -17,6 +17,14 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
 import { InputAdornment } from "@mui/material";
 import MuiTextField from "@mui/material/TextField";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -143,19 +151,89 @@ export default function PrimarySearchAppBar() {
     },
   }));
 
+  // Drawer <--------------------------------------------------->
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <Box
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar style={{ backgroundColor: "white" }} position="static">
+      <AppBar
+        style={{ backgroundColor: "white", boxShadow: "none" }}
+        position="static"
+      >
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="black"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          {[""].map((anchor) => (
+            <React.Fragment key={anchor}>
+              <IconButton
+                size="large"
+                edge="start"
+                color="black"
+                aria-label="open drawer"
+                sx={{ mr: 2 }}
+                onClick={toggleDrawer(anchor, true)}
+              >
+                {anchor}
+                <MenuIcon />
+                <Drawer
+                  anchor={"left"}
+                  open={state[anchor]}
+                  onClose={toggleDrawer(anchor, false)}
+                >
+                  {list(anchor)}
+                </Drawer>
+              </IconButton>
+            </React.Fragment>
+          ))}
           <Typography
             variant="h6"
             noWrap
