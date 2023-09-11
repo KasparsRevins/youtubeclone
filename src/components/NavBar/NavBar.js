@@ -178,7 +178,7 @@ export default function PrimarySearchAppBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+        {["Home", "Shorts", "Subscriptions"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -191,7 +191,33 @@ export default function PrimarySearchAppBar() {
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
+        {["Library", "History"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["Sign in"].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["Trending", "Music", "Movies & TV", "Live", "Gaming", "News", "Sport", "Learning", "Fashion & beauty"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -237,9 +263,11 @@ export default function PrimarySearchAppBar() {
                   aria-label="open drawer"
                   sx={{ mr: 2 }}
                   onClick={toggleDrawer(anchor, false)}
-                  style={{ backgroundColor: 'transparent' }}
+                  style={{ backgroundColor: "transparent" }}
                 >
-                  <MenuIcon style={{position: 'absolute',top: 22.5,left: 35}} />
+                  <MenuIcon
+                    style={{ position: "absolute", top: 22.5, left: 35 }}
+                  />
                   <img
                     alt="User"
                     style={{ width: "90px", cursor: "pointer" }}
@@ -257,11 +285,13 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ mr: 3, display: { xs: "none", sm: "block" } }}
           >
-            <img
-              alt="User"
-              style={{ width: "90px", cursor: "pointer" }}
-              src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500"
-            />
+            <Link to="/">
+              <img
+                alt="User"
+                style={{ width: "90px", cursor: "pointer" }}
+                src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500"
+                />
+            </Link>
           </Typography>
 
           <TextField
