@@ -224,14 +224,31 @@ export default function PrimarySearchAppBar() {
               >
                 {anchor}
                 <MenuIcon />
-                <Drawer
-                  anchor={"left"}
-                  open={state[anchor]}
-                  onClose={toggleDrawer(anchor, false)}
-                >
-                  {list(anchor)}
-                </Drawer>
               </IconButton>
+              <Drawer
+                anchor={"left"}
+                open={state[anchor]}
+                onClose={toggleDrawer(anchor, false)}
+              >
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="black"
+                  aria-label="open drawer"
+                  sx={{ mr: 2 }}
+                  onClick={toggleDrawer(anchor, false)}
+                  style={{ backgroundColor: 'transparent' }}
+                >
+                  <MenuIcon style={{position: 'absolute',top: 22.5,left: 35}} />
+                  <img
+                    alt="User"
+                    style={{ width: "90px", cursor: "pointer" }}
+                    src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500"
+                  />
+                </IconButton>
+
+                {list(anchor)}
+              </Drawer>
             </React.Fragment>
           ))}
           <Typography
