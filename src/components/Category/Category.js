@@ -1,7 +1,7 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 
 export default function CenteredTabs() {
   const [value, setValue] = React.useState(0);
@@ -11,21 +11,38 @@ export default function CenteredTabs() {
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", width: '100%', bgcolor: 'background.paper' }} >
-      <Tabs 
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        width: "100%",
+        bgcolor: "background.paper",
+      }}
+    >
+      <Tabs
         value={value}
         onChange={handleChange}
         variant="scrollable"
         scrollButtons="auto"
-        TabIndicatorProps={{ sx: { height: 0} }}
-        sx={{ 
-          "& button": { backgroundColor: "background.paper", border: "1px solid grey", margin: 1, borderRadius: "8px", padding: "4px", width: "auto", display: "flex", textTransform: "capitalize", height: "24px"
-        },
-          "& button:focus": { backgroundColor: "black", color: "white"},
-          "& button.Mui-selected": { backgroundColor: "black", color: "white"},
+        heightAdjustMode="none"
+        TabIndicatorProps={{ sx: { height: 0 } }}
+        sx={{
+          "& button": {
+            backgroundColor: "WhiteSmoke",
+            margin: 1,
+            borderRadius: "8px",
+            padding: "4px",
+            width: "auto",
+            display: "flex",
+            textTransform: "capitalize",
+            minHeight: "32px"
+          },
+          "& button:focus": { backgroundColor: "black", color: "white" },
+          "& button.Mui-selected": { backgroundColor: "black", color: "white" },
         }}
-        style={{ maxWidth: { xs: 320, sm: 500 }}}
-        >
+        style={{ maxWidth: { xs: 320, sm: 500 } }}
+      >
+        <Tab label="All" />
         <Tab label="Adventure" />
         <Tab label="Music" />
         <Tab label="Live" />
@@ -44,4 +61,3 @@ export default function CenteredTabs() {
     </Box>
   );
 }
-
