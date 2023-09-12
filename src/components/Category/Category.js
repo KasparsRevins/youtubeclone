@@ -11,15 +11,28 @@ export default function CenteredTabs() {
   };
 
   return (
-    <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-      <Tabs value={value} onChange={handleChange} centered>
-        <Tab class="border rounded-pill p-1" style={{margin: 5}} label="Adventure" />
-        <Tab class="border rounded-pill p-1" style={{margin: 5}} label="Music" />
-        <Tab class="border rounded-pill p-1" style={{margin: 5}} label="Live" />
-        <Tab class="border rounded-pill p-1" style={{margin: 5}} label="Chill-out music" />
-        <Tab class="border rounded-pill p-1" style={{margin: 5}} label="News" />
-        <Tab class="border rounded-pill p-1" style={{margin: 5}} label="Background music" />
-        <Tab class="border rounded-pill p-1" style={{margin: 5}} label="Gadgets" />
+    <Box sx={{ display: "flex", justifyContent: "center", width: '100%', bgcolor: 'background.paper' }} >
+      <Tabs 
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons="auto"
+        style={{ maxWidth: { xs: 320, sm: 500 }}}
+        >
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Adventure" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Music" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Live" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Chill-out music" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="News" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Background music" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Gadgets" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Game shows" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Sketch comedy" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Tourist destinations" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Driving" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Sport leagues" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Nature" />
+        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Recently uploaded" />
       </Tabs>
     </Box>
   );
