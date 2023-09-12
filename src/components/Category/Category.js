@@ -17,22 +17,29 @@ export default function CenteredTabs() {
         onChange={handleChange}
         variant="scrollable"
         scrollButtons="auto"
+        TabIndicatorProps={{ sx: { height: 0} }}
+        sx={{ 
+          "& button": { backgroundColor: "background.paper", border: "1px solid grey", margin: 1, borderRadius: "8px", padding: "4px", width: "auto", display: "flex", textTransform: "capitalize", height: "24px"
+        },
+          "& button:focus": { backgroundColor: "black", color: "white"},
+          "& button.Mui-selected": { backgroundColor: "black", color: "white"},
+        }}
         style={{ maxWidth: { xs: 320, sm: 500 }}}
         >
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Adventure" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Music" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Live" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Chill-out music" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="News" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Background music" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Gadgets" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Game shows" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Sketch comedy" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Tourist destinations" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Driving" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Sport leagues" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Nature" />
-        <Tab class="border p-1" style={{margin: 5, borderRadius: "8px"}} label="Recently uploaded" />
+        <Tab label="Adventure" />
+        <Tab label="Music" />
+        <Tab label="Live" />
+        <Tab label="Chill-out music" />
+        <Tab label="News" />
+        <Tab label="Background music" />
+        <Tab label="Gadgets" />
+        <Tab label="Game shows" />
+        <Tab label="Sketch comedy" />
+        <Tab label="Tourist destinations" />
+        <Tab label="Driving" />
+        <Tab label="Sport leagues" />
+        <Tab label="Nature" />
+        <Tab label="Recently uploaded" />
       </Tabs>
     </Box>
   );
